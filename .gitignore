@@ -1,0 +1,16 @@
+# Verilator build artifacts
+obj_dir/
+*.o
+*.d
+
+# Simulation outputs
+*.vcd
+*.fst
+
+# Editor backups
+*~
+*.swp
+.DS_Store
+
+# OS files
+Thumbs.db
