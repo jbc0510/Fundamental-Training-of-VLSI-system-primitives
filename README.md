@@ -35,7 +35,7 @@ Compile and run any session:
 | 2 | Parameterized N:1 mux | Combinational (1) | `parameter int N`, `$clog2(N)`, unpacked arrays, parameter override syntax |
 | 3 | Parameterized decoder | Combinational (1) | A decoder is a shifter with a constant input; walking-1 output signature |
 | 4 | Parameterized priority encoder | Combinational (1) | `always_comb` with default assignments at top; iteration direction = priority direction; `task` for reusable testbench checks |
-
+| 5 | 8-bit adder with carry | Combinational (1) | Concatenation `{cout, sum}` on LHS forces 9-bit destination; explicit width with `{8'b0, cin}` for strict-lint compliance |
 ## Framework
 
 These primitives sit within a unifying five-class taxonomy of digital hardware:
@@ -54,7 +54,7 @@ All four sessions to date have been Class 1 (Combinational). Class 2 is next.
 - [x] Session 2 — Parameterized N:1 mux
 - [x] Session 3 — Parameterized decoder
 - [x] Session 4 — Parameterized priority encoder
-- [ ] Session 5 — 8-bit adder with carry (opens arithmetic family)
+- [x] Session 5 — 8-bit adder with carry (opens arithmetic family)
 - [ ] Session 6 — Comparator (equality + magnitude)
 - [ ] Session 7 — Barrel shifter (mux tree, explicit)
 - [ ] Session 8 — Mini-ALU (composes 5–7 — first Pattern A composition)
