@@ -38,6 +38,7 @@ Compile and run any session:
 | 5 | 8-bit adder with carry | Combinational (1) | Concatenation `{cout, sum}` on LHS forces 9-bit destination; explicit width with `{8'b0, cin}` for strict-lint compliance |
 ## Framework
 | 6 | 8-bit magnitude comparator | Combinational (1) | Three 1-bit flags (eq/lt/gt) with trichotomy invariant; `==` `<` `>` synthesize to subtractor + carry inspection; equality is XNOR/AND only (no arithmetic) |
+| 7 | 8-bit barrel shifter | Combinational (1) | Three-stage mux tree (shift by 1, 2, 4); iteration order = power-of-2 stages; shift_amt bits map 1:1 to stages; RHS concatenation `{data[6:0], 1'b0}` expresses shift-by-1 structurally |
 These primitives sit within a unifying five-class taxonomy of digital hardware:
 
 1. **Combinational** — pure functions of inputs (mux, decoder, adder, comparator, shifter)
@@ -56,7 +57,7 @@ All four sessions to date have been Class 1 (Combinational). Class 2 is next.
 - [x] Session 4 — Parameterized priority encoder
 - [x] Session 5 — 8-bit adder with carry (opens arithmetic family)
 - [x] Session 6 — Comparator (equality + magnitude)
-- [ ] Session 7 — Barrel shifter (mux tree, explicit)
+- [x] Session 7 — Barrel shifter (mux tree, explicit)
 - [ ] Session 8 — Mini-ALU (composes 5–7 — first Pattern A composition)
 - [ ] Session 9+ — Class 2 storage primitives
 
